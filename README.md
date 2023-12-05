@@ -1,5 +1,4 @@
-# Database API Project
-A simple profile webpage.
+# Flask Web App Tutorial
 
 ## Setup & Installation
 
