@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, jsonify,redirect, url_for
 from flask_login import login_required, current_user
-from .models import Note, EditProfileForm
+from .models import Note, EditProfileForm, ContactForm
 from . import db
 import json
 from datetime import datetime  # Add this import
@@ -64,4 +64,22 @@ def edit_profile():
     flash('Your changes have been saved.', 'success')
     return redirect(url_for('views.home'))
 
-    
+
+@views.route('/edit_contact', methods=['GET', 'POST'])
+@login_required
+def edit_contact():
+    form = ContactForm()
+
+    if request.method == 'GET':   
+        form.email.data = current_user.email
+        form.phone.data = current_user.phone
+        form.address.data = current_user.address      
+        return render_template('edit_contact.html', form=form)
+
+    current_user.email = form.email.data
+    current_user.phone = form.phone.data
+    current_user.address = form.address.data
+    db.session.commit()
+    flash('Contact information updated!', category='success')
+    return redirect(url_for('views.home'))
+
