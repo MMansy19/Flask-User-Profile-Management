@@ -1,6 +1,8 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from flask_wtf import FlaskForm
+from wtforms import StringField, IntegerField, SubmitField
 
 
 class Note(db.Model):
@@ -20,3 +22,13 @@ class User(db.Model, UserMixin):
     phone = db.Column(db.String(150))
     address = db.Column(db.String(150))
     notes = db.relationship('Note')
+
+
+
+class EditProfileForm(FlaskForm):
+    first_name = StringField('First Name')
+    last_name = StringField('Last Name')
+    age = IntegerField('Age')
+    phone = IntegerField('Phone')
+    address = StringField('Address')
+    submit = SubmitField('Save Changes')
