@@ -22,7 +22,15 @@ class User(db.Model, UserMixin):
     phone = db.Column(db.String(150))
     address = db.Column(db.String(150))
     notes = db.relationship('Note')
+    contact = db.relationship('Contact', backref='user', uselist=False)
 
+
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(150))
+    phone = db.Column(db.String(20))
+    address = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
 class EditProfileForm(FlaskForm):
@@ -30,5 +38,12 @@ class EditProfileForm(FlaskForm):
     last_name = StringField('Last Name')
     age = IntegerField('Age')
     phone = IntegerField('Phone')
+    address = StringField('Address')
+    submit = SubmitField('Save Changes')
+    
+
+class ContactForm(FlaskForm):
+    email = StringField('Email')
+    phone = StringField('Phone')
     address = StringField('Address')
     submit = SubmitField('Save Changes')
