@@ -22059,6 +22059,28 @@ a.pswp__share--download:hover {
 .u-tab-list[class*="u-border"] .u-tab-link.u-border-20 {
   margin-bottom: -20px;
 }
+/* Signup.css */
+
+/* Add this style for the "Create an account" text */
+/* Signup.css */
+
+/* Add this style for the "Create an account" text box */
+/* Signup.css */
+
+/* Add this style for the "Create an account" text box */
+.u-text-5 {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #3498db; /* Blue color for text */
+  font-weight: bold; /* Bold font weight */
+  padding: 10px; /* Adjust the padding as needed */
+  background-color: #ffffff; /* White background color */
+  display: inline-block; /* Display as inline-block to create a box around the text */
+  border: 2px solid #ffffff; /* White border */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+}
+
+
+
 .u-text .u-icon,
 .u-btn .u-icon,
 .u-table-cell .u-icon,
