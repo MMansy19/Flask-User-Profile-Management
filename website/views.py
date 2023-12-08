@@ -3,6 +3,8 @@ from flask_login import login_required, current_user
 from .models import Note, EditProfileForm
 from . import db
 import json
+from datetime import datetime  # Add this import
+
 
 views = Blueprint('views', __name__)
 
@@ -16,12 +18,14 @@ def home():
         if len(note) < 1:
             flash('Note is too short!', category='error') 
         else:
-            new_note = Note(data=note, user_id=current_user.id)  #providing the schema for the note 
+            # new_note = Note(data=note, user_id=current_user.id)  #providing the schema for the note 
+            new_note = Note(data=note, user_id=current_user.id, date=datetime.utcnow())
             db.session.add(new_note) #adding the note to the database 
             db.session.commit()
             flash('Note added!', category='success')
 
     return render_template("home.html", user=current_user)
+    
 
 
 @views.route('/delete-note', methods=['POST'])
