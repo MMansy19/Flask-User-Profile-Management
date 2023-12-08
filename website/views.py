@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, render_template, request, flash, jsonify,redirect, url_for
 from flask_login import login_required, current_user
-from .models import Note
+from .models import Note, EditProfileForm
 from . import db
 import json
 
@@ -35,3 +35,29 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+
+@views.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+    if request.method == 'GET':
+            form.first_name.data = current_user.first_name
+            form.last_name.data = current_user.last_name
+            form.age.data = current_user.age
+            form.phone.data = current_user.phone
+            form.address.data = current_user.address
+
+            return render_template('edit_profile.html', form=form)
+
+    current_user.first_name = form.first_name.data
+    current_user.last_name = form.last_name.data
+    current_user.age = form.age.data
+    current_user.phone = form.phone.data
+    current_user.address = form.address.data
+
+    db.session.commit()
+    flash('Your changes have been saved.', 'success')
+    return redirect(url_for('views.home'))
+
+    
