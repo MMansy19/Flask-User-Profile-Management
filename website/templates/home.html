@@ -21,7 +21,7 @@
                             <div class="profile-header-cover"></div>
                             <div class="profile-header-content">
                                 <div class="profile-header-img">
-                                    <img src="./images/b780faf9-34d3-4bd2-bdc6-96b83a045508.jpg" alt="">
+                                <img class="" src="\static\profile_pics\{{ user.image_file }}">
                                 </div>
                                 <div class="profile-header-info">
                                     <h4 class="m-t-10 m-b-5">{{ user.first_name }}</h4>
@@ -44,6 +44,8 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <br/>
                     <h1 align="center">Posts</h1>
                     <ul class="list-group list-group-flush" id="notes">
                         {% for note in user.notes %}
@@ -59,7 +61,7 @@
                         <textarea name="note" id="note" class="form-control"></textarea>
                         <br />
                         <div align="center">
-                            <button type="submit" class="btn btn-primary">Add Note</button>
+                            <button type="submit" class="btn btn-primary">Create a New Post</button>
                         </div>
                     </form>
 

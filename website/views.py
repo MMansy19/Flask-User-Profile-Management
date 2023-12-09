@@ -1,10 +1,13 @@
 from flask import Blueprint, render_template, request, flash, jsonify,redirect, url_for
 from flask_login import login_required, current_user
-from .models import Note, EditProfileForm, ContactForm
+from .models import Note
+from .forms import  EditProfileForm
 from . import db
 import json
 from datetime import datetime  # Add this import
-
+import os
+import secrets
+from PIL import Image
 
 views = Blueprint('views', __name__)
 
@@ -51,8 +54,9 @@ def edit_profile():
             form.age.data = current_user.age
             form.phone.data = current_user.phone
             form.address.data = current_user.address
-
-            return render_template('edit_profile.html', form=form)
+        
+            image_file = url_for('static', filename=f'profile_pics/{current_user.image_file}')
+            return render_template('edit_profile.html', image_file=image_file, form=form)
 
     current_user.first_name = form.first_name.data
     current_user.last_name = form.last_name.data
@@ -60,26 +64,23 @@ def edit_profile():
     current_user.phone = form.phone.data
     current_user.address = form.address.data
 
+    picture_file = save_picture(form.picture.data)
+    current_user.image_file = picture_file
+
+
     db.session.commit()
     flash('Your changes have been saved.', 'success')
     return redirect(url_for('views.home'))
 
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(views.root_path, 'static/profile_pics', picture_fn)
 
-@views.route('/edit_contact', methods=['GET', 'POST'])
-@login_required
-def edit_contact():
-    form = ContactForm()
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
 
-    if request.method == 'GET':   
-        form.email.data = current_user.email
-        form.phone.data = current_user.phone
-        form.address.data = current_user.address      
-        return render_template('edit_contact.html', form=form)
-
-    current_user.email = form.email.data
-    current_user.phone = form.phone.data
-    current_user.address = form.address.data
-    db.session.commit()
-    flash('Contact information updated!', category='success')
-    return redirect(url_for('views.home'))
-
+    return picture_fn
