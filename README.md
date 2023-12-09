@@ -5,11 +5,12 @@ A comprehensive Flask web application showcasing user profile management feature
 ![My Profile](2.jpg)
 ![a Friend Profile](3.jpg)
 
+
+![Login Profile](5.jpeg)
+
 <div style="text-align:center">
     <img src="4.jpeg" alt="Sign UP">
 </div>
-
-![Login Profile](5.jpeg)
 
 ## Setup & Installation
 
