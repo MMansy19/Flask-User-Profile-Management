@@ -1,5 +1,3 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
-    content %}
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en">
 
@@ -9,7 +7,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../static/Login.css" media="screen">
+    <link rel="stylesheet" href="./Login.css" media="screen">
     <script class="u-script" type="text/javascript" src="./signup.html" defer=""></script>
     <meta name="Signup" content="signuppage">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -33,65 +31,38 @@
                 <form action="#" class="u-clearfix u-form-custom-backend u-form-spacing-38 u-form-vertical u-inner-form"
                     source="custom" name="form" style="padding: 30px;" method="post">
                     <div class="u-form-group u-form-name">
-                        <label for="First Name " class="u-custom-font u-label u-label-1">First Name *</label>
-                        <input type="text" placeholder="Enter your First Name" id="username-a30d"    name="firstName"
-                            class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-1"
-                            required="">
-                    </div>
-                    <div class="u-form-group u-form-name">
-                        <label for="Secound Name" class="u-custom-font u-label u-label-1">Secound Name *</label>
-                        <input type="text" placeholder="Enter your Secound Name " id="username-a30d"       name="lastName"
-                            class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-1"
-                            required="">
-                              <div class="u-form-group u-form-name">
-                        <label for="Secound Name" class="u-custom-font u-label u-label-1">Secound Name *</label>
-                        <input type="text" placeholder="Enter your Secound Name " id="username-a30d"       name="lastName"
-                            class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-1"
-                            required="">
-                    </div>
-                    <div class="u-form-group u-form-address">
-                        <label for="address" class="u-custom-font u-label u-label-1"><address></address> *</label>
-                        <input type="text" placeholder="Enter your address" id="username-a30d"        name="address"
+                        <label for="username-a30d" class="u-custom-font u-label u-label-1">Username *</label>
+                        <input type="text" placeholder="Enter your Username" id="username-a30d" name="username"
                             class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-1"
                             required="">
                     </div>
                     <div class="u-form-group u-form-email">
                         <label for="email-a30d" class="u-custom-font u-label u-label-3">Email *</label>
-                        <input type="email" placeholder="Enter your Email" id="email-a30d" 
+                        <input type="email" placeholder="Enter your Email" id="email-a30d" name="email"
                             class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-3"
-                            required=""    name="email">
+                            required="">
                     </div>
                     <div class="u-form-group u-form-date">
-                        <label for="age" class="u-custom-font u-label u-label-4">Age *</label>
-                        <input type="text" id="dob-a30d" 
+                        <label for="dob-a30d" class="u-custom-font u-label u-label-4">Date of Birth *</label>
+                        <input type="date" id="dob-a30d" name="dob"
                             class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-4"
-                            required="" placeholder="Enter your Age"  name="age">
+                            required="">
                     </div>
                     <div class="u-form-group u-form-password">
                         <label for="password-a30d" class="u-custom-font u-label u-label-2">Password *</label>
-                        <input type="text" placeholder="Enter your Password" id="password-a30d" name="password1"
+                        <input type="text" placeholder="Enter your Password" id="password-a30d" name="password"
                             class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-2"
                             required="">
                     </div>
-                    <div class="u-form-group u-form-password">
-                        <label for="confirmpassword" class="u-custom-font u-label u-label-2">confirm password *</label>
-                        <input type="text" placeholder="Enter your Password" id="password-a30d" name="password2"
-                            class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-2"
-                            required="">
-                    </div>
-                    <div class="u-form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="text" placeholder="Enter your phone" id="password-a30d" name="phone"
-                            class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-2"
-                            required="">
-                      </div>
                     <div class="u-align-left u-form-group u-form-submit">
-                        <button type="submit" class="btn btn-primary" >Submit</button>
+                        <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-base u-btn-1">Sign
+                            Up</a>
+                        <input type="submit" value="submit" class="u-form-control-hidden">
                     </div>
                     <input type="hidden" value="" name="recaptchaResponse">
                 </form>
             </div>
-            <a href="./login"
+            <a href="./login.html"
                 class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-signup-control u-signup-forgot-password u-palette-1-base u-text-body-alt-color u-text-hover-palette-3-base u-btn-2">Already
                 have an account?</a>
         </div>
@@ -99,4 +70,3 @@
 
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-ea6c">
         <
-        {% endblock %}

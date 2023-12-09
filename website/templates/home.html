@@ -1,76 +1,277 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="content" class="content content-full-width">
+                    <div class="profile">
+                        <div class="profile-header">
+                            <div class="profile-header-cover"></div>
+                            <div class="profile-header-content">
+                                <div class="profile-header-img">
+                                    <img src="./images/b780faf9-34d3-4bd2-bdc6-96b83a045508.jpg" alt="">
+                                </div>
+                                <div class="profile-header-info">
+                                    <h4 class="m-t-10 m-b-5">{{ user.first_name }}</h4>
+                                    <h4 class="m-t-10 m-b-5">{{ user.last_name }}</h4>
+                                    <h4 class="m-t-10 m-b-5">{{ user.age }}</h4>
+                                    <h4 class="m-t-10 m-b-5">{{ user.phone }}</h4>
+                                    <h4 class="m-t-10 m-b-5">{{ user.address }}</h4>
+                                    <p class="m-b-10">CUFE BDE STUDENT</p>
+                                    <a href="{{ url_for('views.edit_profile') }} "class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                                </div>  
+                                <div class="profile-icons">
+                                    <a href="#" class="text-danger"><i class="fa fa-bell fa-lg"></i></a>
+                                    <a href="#" class="text-danger"><i class="fa fa-envelope fa-lg"></i></a>
+                                    <a href="./login" class="text-danger"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
+                                </div>
+                            </div>
+                            <ul class="profile-header-tab nav nav-tabs">
+                                <li class="nav-item"><a href="blank" target="__blank" class="nav-link_ active show">POSTS</a></li>
+                                <li class="nav-item"><a href="./update" target="__blank" class="nav-link_">FRIENDS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h1 align="center">Posts</h1>
+                    <ul class="list-group list-group-flush" id="notes">
+                        {% for note in user.notes %}
+                        <li class="list-group-item">
+                            {{ note.data }} - {{ note.date.strftime('%Y-%m-%d %H:%M:%S') }}
+                            <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <form method="POST">
+                        <textarea name="note" id="note" class="form-control"></textarea>
+                        <br />
+                        <div align="center">
+                            <button type="submit" class="btn btn-primary">Add Note</button>
+                        </div>
+                    </form>
 
-<div class="container">
-    <h1 align="center">Personal Information</h1>
-    <div class="row">
-        <!-- Add the image to the left -->
-        <div class="col-md-3">
-            <img src="\static\images\mahmoud.jpg" alt="Your Image" class="img-fluid">
-        </div>
+                    <!-- <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Create a New Post</h5>
+                            <form id="newPostForm">
+                                <div class="form-group">
+                                    <textarea class="form-control form-control-sm" rows="2" placeholder="Freespace buddy speak up" id="postContent" required></textarea>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-primary">Post</button>
+                            </form>
+                        </div>
+                    </div>
 
-        <!-- Display personal information in a list -->
-        <div class="col-md-6">
-            <ul class="list-group list-group-flush" id="personal_info">
-                <li class="list-group-item">{{ user.first_name }}</li>
-                <li class="list-group-item">{{ user.last_name }}</li>
-                <li class="list-group-item">{{ user.age }}</li>
-                <li class="list-group-item">{{ user.phone }}</li>
-                <li class="list-group-item">{{ user.address }}</li>
-
-            </ul>
-            
-        <div align="center">
-                      <a href="{{ url_for('views.edit_profile') }}" class="btn btn-primary mt-3">Edit Profile</a>
-
-        </div>
-        </div>
-
-        <!-- Add social media links section -->
-        <div class="col-md-3">
-            <h3>Connect with me:</h3>
-            <!-- Add your social media links here -->
-            <a href="#" target="_blank" class="btn btn-primary mt-3">
-                <i class="fab fa-twitter"></i> Twitter
-            </a>
-            <a href="#" target="_blank" class="btn btn-primary mt-3">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="#" target="_blank" class="btn btn-primary mt-3">
-                <i class="fab fa-linkedin"></i> Github
-            </a>
-            <a href="bassel@gmail.com" target="_blank" class="btn btn-primary mt-3">
-                <i class="fab fa-linkedin"></i> mail
-            </a>
-            <!-- Add more social media links as needed -->
-                              <br />
-                              <br />
-
-            <a href="{{ url_for('views.edit_contact') }}" class="btn btn-primary">Edit Contact</a>
-
-        </div>
-
+                    <div class="tab-content p-0">
+                        <div class="tab-pane fade active show" id="profile-post">
+                            <ul class="timeline">
+    
+    <ul class="timeline">
+    <li>
+    
+    <div class="timeline-time">
+    <span class="date">today</span>
+    <span class="time">04:20</span>
     </div>
+    
+    
+    <div class="timeline-icon">
+    <a href="javascript:;">&nbsp;</a>
+    </div>
+    
+    
+    <div class="timeline-body">
+    <div class="timeline-header">
+    <span class="userimage"><img src="./images/b780faf9-34d3-4bd2-bdc6-96b83a045508.jpg" alt></span>
+    <span class="username"><a href="javascript:;">Amr Safwat</a> <small></small></span>
+    <span class="pull-right text-muted">1,242,798 Views</span>
+    </div>
+    <div class="timeline-content">
+    <p>
+        لقد خلقنا الله أحرارا ولم يخلقنا تراثا أو عقار فوالله الذي لا إله الا هو لن نورث ولن نستعبد بعد "اليوم. متى استعبدتم الناس و قد ولدتهم امهاتهم احرارا!
 
-    <h1 align="center">Posts</h1>
-    <ul class="list-group list-group-flush" id="notes">
-        {% for note in user.notes %}
-        <li class="list-group-item">
-            {{ note.data }} - {{ note.date.strftime('%Y-%m-%d %H:%M:%S') }}
-            <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </li>
-        {% endfor %}
-    </ul>
-    <form method="POST">
-        <textarea name="note" id="note" class="form-control"></textarea>
-        <br />
-        <div align="center">
-            <button type="submit" class="btn btn-primary">Add Note</button>
-        </div>
+    </p>
+    </div>
+    <div class="timeline-likes">
+    <div class="stats-right">
+    <span class="stats-text">940,509 Shares</span>
+    <span class="stats-text">845000 Comments</span>
+    </div>
+    <div class="stats">
+    <span class="fa-stack fa-fw stats-icon">
+    <i class="fa fa-circle fa-stack-2x text-danger"></i>
+    <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+    </span>
+    <span class="fa-stack fa-fw stats-icon">
+    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+    <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+    </span>
+    <span class="stats-total">100.3k</span>
+    </div>
+    </div>
+    <div class="timeline-footer">
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+    </div>
+    <div class="timeline-comment-box">
+    <div class="user"><img src="./images/b780faf9-34d3-4bd2-bdc6-96b83a045508.jpg"></div>
+    <div class="input">
+    <form action>
+    <div class="input-group">
+    <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
+    <span class="input-group-btn p-l-10">
+    <button class="btn btn-primary f-s-12 rounded-corner" type="button">Comment</button>
+    </span>
+    </div>
     </form>
-</div>
-
-{% endblock %}
+    </div>
+    </div>
+    </div>
+    
+    </li>
+    <li>
+    
+    <div class="timeline-time">
+    <span class="date">yesterday</span>
+    <span class="time">20:17</span>
+    </div>
+    
+    
+    <div class="timeline-icon">
+    <a href="javascript:;">&nbsp;</a>
+    </div>
+    
+    
+    <div class="timeline-body">
+    <div class="timeline-header">
+    <span class="userimage"><img src="./images/b780faf9-34d3-4bd2-bdc6-96b83a045508.jpg" alt></span>
+    <span class="username">ِAmr Safwat</span>
+    <span class="pull-right text-muted">82 Views</span>
+    </div>
+    <div class="timeline-content">
+    <p>Location: United States</p>
+    </div>
+    <div class="timeline-footer">
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+    </div>
+    </div>
+    
+    </li>
+    <li>
+    
+    <div class="timeline-time">
+    <span class="date">8 December 2023</span>
+    <span class="time">16:17</span>
+    </div>
+    
+    
+    <div class="timeline-icon">
+    <a href="javascript:;">&nbsp;</a>
+    </div>
+    
+    
+    <div class="timeline-body">
+    <div class="timeline-header">
+    <span class="userimage"><img src="./images/b780faf9-34d3-4bd2-bdc6-96b83a045508.jpg" alt></span>
+    <span class="username">Amr Safwat</span>
+    <span class="pull-right text-muted">1,282 Views</span>
+    </div>
+    <div class="timeline-content">
+    <p class="lead">
+    <i class="fa fa-quote-left fa-fw pull-left"></i>today is the day<i class="fa fa-quote-right fa-fw pull-right"></i>
+    </p>
+    </div>
+    <div class="timeline-footer">
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+    </div>
+    </div>
+    
+    </li>
+    <li>
+    
+    <div class="timeline-time">
+    <span class="date">10 January 2014</span>
+    <span class="time">20:43</span>
+    </div>
+    
+    
+    <div class="timeline-icon">
+    <a href="javascript:;">&nbsp;</a>
+    </div>
+    
+    
+    <div class="timeline-body">
+    <div class="timeline-header">
+    <span class="userimage"><img src="./images/b780faf9-34d3-4bd2-bdc6-96b83a045508.jpg"alt></span>
+    <span class="username">Sean Ngu</span>
+    <span class="pull-right text-muted">1,021,282 Views</span>
+    </div>
+    <div class="timeline-content">
+    <h4 class="template-title">
+    <i class="fa fa-map-marker text-danger fa-fw"></i>
+    91 z , Hadayek el ahram
+    </h4>
+    <p>Chilling in my home</p>
+    <p class="m-t-20">
+    <img src="../assets/img/gallery/gallery-5.jpg"s alt>
+    </p>
+    </div>
+    <div class="timeline-footer">
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+    <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+    </div>
+    </div>
+    
+    </li>
+    <li>
+    
+    <div class="timeline-icon">
+    <a href="javascript:;">&nbsp;</a>
+    </div>
+    
+    
+    <div class="timeline-body">
+    Loading...
+    </div>
+    
+    </li>
+    </ul>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    </div>
+    </div>
+    </div> -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="text/javascript">
+        
+    </script>
+    </body>
+    </html>
+    {% endblock %}

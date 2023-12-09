@@ -1,5 +1,3 @@
-{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
-  %}
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +5,8 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Login</title>
-    <link rel="stylesheet" href="../static/Login.css" media="screen">
-    <link rel="stylesheet" href="../static/Login.css" media="screen">
+    <link rel="stylesheet" href="Login.css" media="screen">
+<link rel="stylesheet" href="Login.css" media="screen">
     <script class="u-script" type="text/javascript" src="./login.html" defer=""></script>
     <script class="u-script" type="text/javascript" src="./login.js" defer=""></script>
     <meta name="Login" content="loginpage">
@@ -32,25 +30,26 @@
         <div class="u-form u-login-control u-form-1">
           <form action="#" class="u-clearfix u-form-custom-backend u-form-spacing-38 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 30px;" method="post">
             <div class="u-form-group u-form-name">
-              <label for="Email-a30d" class="u-custom-font u-label u-label-1">Email *</label>
-              <input type="text" placeholder="Enter your Email" id="username-a30d"  name="email" class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-1" required="">
+              <label for="username-a30d" class="u-custom-font u-label u-label-1">Username *</label>
+              <input type="text" placeholder="Enter your Username" id="username-a30d" name="username" class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-1" required="">
             </div>
             <div class="u-form-group u-form-password">
               <label for="password-a30d" class="u-custom-font u-label u-label-2">Password *</label>
-              <input type="password" placeholder="Enter your Password" id="password-a30d" name="password" class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-2" required="">
+              <input type="text" placeholder="Enter your Password" id="password-a30d" name="password" class="u-border-2 u-border-palette-4-dark-2 u-input u-input-rectangle u-palette-2-light-1 u-text-palette-1-dark-3 u-input-2" required="">
             </div>
             <div class="u-form-checkbox u-form-group">
               <input type="checkbox" id="checkbox-a30d" name="remember" value="On" class="u-field-input">
               <label for="checkbox-a30d" class="u-block-afc3-32 u-custom-font u-field-label" style="text-transform: uppercase; font-weight: 700; font-family: Itim;">Remember me</label>
             </div>
             <div class="u-align-left u-form-group u-form-submit">
-              <button type="submit" class="btn btn-primary">Login</button>
+              <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-1-base u-btn-1">Login</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
             </div>
             <input type="hidden" value="" name="recaptchaResponse">
           </form>
         </div>
         <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-palette-1-base u-text-body-alt-color u-text-hover-palette-3-base u-btn-2">Forgot password?</a>
-        <a href="/sign-up" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-create-account u-palette-1-base u-text-hover-white u-text-palette-3-base u-btn-3">Don't have an account?</a>
+        <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-create-account u-palette-1-base u-text-hover-white u-text-palette-3-base u-btn-3">Don't have an account?</a>
       </div>
     </section>
     
@@ -62,4 +61,3 @@
  
   
 </body></html>
-{% endblock %}
