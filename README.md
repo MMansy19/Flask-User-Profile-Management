@@ -1,6 +1,6 @@
 # Flask User Profile Management
 
-##Discription
+## Discription
 A comprehensive Flask web application showcasing user profile management features, including registration, login, profile editing, and image uploads. Implements user authentication, database integration, and dynamic rendering with Flask and Bootstrap. Ideal for learning Flask web development and best practices.
 
 ## Setup & Installation
