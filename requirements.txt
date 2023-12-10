@@ -1,6 +1,7 @@
 flask
 Flask-SQLAlchemy
-flask-loginasgiref==3.7.2
+Flask-Login
+asgiref==3.7.2
 backports.zoneinfo==0.2.1
 blinker==1.7.0
 click==8.1.7
