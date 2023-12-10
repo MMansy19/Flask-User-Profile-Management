@@ -3,6 +3,16 @@
 ## Discription
 A comprehensive Flask web application showcasing user profile management features, including registration, login, profile editing, and image uploads. Implements user authentication, database integration, and dynamic rendering with Flask and Bootstrap. Ideal for learning Flask web development and best practices.
 
+[a video presentation](https://drive.google.com/file/d/1hwISKuoGXkUZUnUkge7NuuITEzsCt7Sv/view)
+
+![My Profile](2.jpg)
+![a Friend Profile](3.jpg)
+![Login Profile](5.jpeg)
+
+<div style="text-align:center">
+    <img src="4.jpeg" alt="Sign UP">
+</div>
+
 ## Setup & Installation
 
 Make sure you have the latest version of Python installed.
