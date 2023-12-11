@@ -8,6 +8,8 @@ A comprehensive Flask web application showcasing user profile management feature
 ![My Profile](2.jpg)
 ![a Friend Profile](3.jpg)
 ![Login Profile](5.jpeg)
+![User Database](user_database.jpg)
+![Database Posts](database_posts.jpg)
 
 <div style="text-align:center">
     <img src="4.jpeg" alt="Sign UP">
