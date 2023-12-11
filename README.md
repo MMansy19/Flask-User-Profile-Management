@@ -5,15 +5,17 @@ A comprehensive Flask web application showcasing user profile management feature
 
 [a video presentation](https://drive.google.com/file/d/1hwISKuoGXkUZUnUkge7NuuITEzsCt7Sv/view)
 
-![My Profile](2.jpg)
-![a Friend Profile](3.jpg)
-![Login Profile](5.jpeg)
-![User Database](user_database.jpg)
-![Database Posts](database_posts.jpg)
-
+![My Profile](images\2.jpg)
+![a Friend Profile](images\3.jpg)
+![Login Profile](images\5.jpeg)
 <div style="text-align:center">
-    <img src="4.jpeg" alt="Sign UP">
+    <img src="images\4.jpeg" alt="Sign UP">
 </div>
+
+![User Database](images\user_database.jpg)
+![Database Posts](images\database_posts.jpg)
+
+
 
 ## Setup & Installation
 
