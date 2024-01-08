@@ -5,12 +5,16 @@ A comprehensive Flask web application showcasing user profile management feature
 
 ## [🎥 Watch the Demo Video](https://drive.google.com/file/d/1hwISKuoGXkUZUnUkge7NuuITEzsCt7Sv/view)
 
+## SignUp
 <div style="text-align:center">
     <img src="website\static\images\4.jpeg" alt="Sign UP">
 </div>
+## SignIn
 <div style="text-align:center">
     <img src="website\static\images\5.jpeg" alt="Sign UP">
 </div>
+
+## Profile pages
 <div style="text-align:center">
     <img src="website\static\images\2.jpg" alt="Sign UP">
 </div>
