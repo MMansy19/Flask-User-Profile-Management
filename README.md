@@ -9,6 +9,7 @@ A comprehensive Flask web application showcasing user profile management feature
 <div style="text-align:center">
     <img src="website\static\images\4.jpeg" alt="Sign UP">
 </div>
+
 ## SignIn
 <div style="text-align:center">
     <img src="website\static\images\5.jpeg" alt="Sign UP">
@@ -24,6 +25,8 @@ A comprehensive Flask web application showcasing user profile management feature
 <div style="text-align:center">
     <img src="website\static\images\1.jpg" alt="Sign UP">
 </div>
+
+## Database
 <div style="text-align:center">
     <img src="website\static\images\user_database.jpg" alt="Sign UP">
 </div>
